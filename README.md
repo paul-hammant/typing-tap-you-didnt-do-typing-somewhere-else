@@ -1,6 +1,22 @@
 # Deep Input Logger
 
+**Rationale**: This tool helps work out what is doing phantom taps for you (noting it could still be you palming the touchpad).
+
+**Trust & Privacy**: While running, this application opens no network connections and writes no files to disk. All input logging remains in memory only and is cleared when the application exits.
+
+**Elevated Privileges**: This app requires elevated privileges to access raw input devices - on Linux it needs access to `/dev/input/event*` devices (via input group membership), and on macOS it needs Accessibility and Input Monitoring permissions. These privileges only take effect when the application is actively running; when stopped, the app has no special access to your input devices. The app cannot access any input events that occurred before its launch, and after exit, any events that happen are similarly inaccessible.
+
 A cross-platform C++ application that captures and logs all mouse and touchpad events (moves, clicks, pressure, gestures) while providing a live typing textarea.
+
+## Compatibility
+
+| Platform | Status |
+|----------|--------|
+| macOS | Should be Compatible |
+| Ubuntu | Should be Compatible |
+| ChromeOS | Unknown |
+| Windows | Not compatible |
+| WSL | Not compatible |
 
 ## Features
 
