@@ -1,0 +1,19 @@
+# udev rules for Deep Input Logger
+# This file should be copied to /etc/udev/rules.d/99-deepinput.rules
+# After copying, run: sudo udevadm control --reload-rules && sudo udevadm trigger
+
+# Allow members of the input group to access input devices
+SUBSYSTEM=="input", GROUP="input", MODE="0664"
+
+# Allow access to event devices specifically
+KERNEL=="event*", SUBSYSTEM=="input", GROUP="input", MODE="0664"
+
+# Allow access to mouse devices
+SUBSYSTEM=="input", ATTRS{name}=="*mouse*", GROUP="input", MODE="0664"
+SUBSYSTEM=="input", ATTRS{name}=="*Mouse*", GROUP="input", MODE="0664"
+
+# Allow access to touchpad devices
+SUBSYSTEM=="input", ATTRS{name}=="*touchpad*", GROUP="input", MODE="0664"
+SUBSYSTEM=="input", ATTRS{name}=="*Touchpad*", GROUP="input", MODE="0664"
+SUBSYSTEM=="input", ATTRS{name}=="*trackpad*", GROUP="input", MODE="0664"
+SUBSYSTEM=="input", ATTRS{name}=="*TrackPad*", GROUP="input", MODE="0664"
